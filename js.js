@@ -1,10 +1,16 @@
 const paralaxWrap = Array.from(document.body.getElementsByClassName("paralax-wrap"));
 const paralaxImg = Array.from(document.body.getElementsByClassName("paralax-img"));
 
+const ParalaxStop = ((element) => {
+    console.log("fuck");
+    setTimeout(ParalaxStop, 2000);
+})
+
 paralaxWrap.forEach((element) => {
     element.onmousemove = function getElem(e, element) {
         getCurCoordsInsideRect(e, element);
     }
+    element.addEventListener("mouseleave", ParalaxStop)
 })
 
 function getCurCoordsInsideRect(e) {
